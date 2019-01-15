@@ -1,13 +1,15 @@
 import BoxSDK from 'box-node-sdk';
-import boxConfig from '../../box_config.json';
+import boxConfig from './boxConfig.json';
 import express from 'express';
-import http from'http';
+import http from 'http';
 import bodyParser from 'body-parser';
 import querystring from 'querystring';
 
 
-const BOX_OAUTH_CLIENT_ID = process.env.BOX_OAUTH_CLIENT_ID;
-const BOX_OAUTH_CLIENT_SECRET = process.env.BOX_OAUTH_CLIENT_SECRET;
+// const BOX_OAUTH_CLIENT_ID = process.env.BOX_OAUTH_CLIENT_ID;
+// const BOX_OAUTH_CLIENT_SECRET = process.env.BOX_OAUTH_CLIENT_SECRET;
+const BOX_OAUTH_CLIENT_ID = "CLIENT ID HERE";
+const BOX_OAUTH_CLIENT_SECRET = "CLIENT SECRET HERE";
 
 
 class AuthenticationService {
@@ -32,8 +34,8 @@ class AuthenticationService {
 
     getOAuthClient() {
 
-        const oauth2ClientId = 'OAUTH_CLIENT_ID_HERE';
-        const oauth2ClientSecret = 'OAUTH_CLIENT_SECRET_HERE';
+        const oauth2ClientId = 'CLIENT ID HERE';
+        const oauth2ClientSecret = 'CLIENT SECRET HERE';
 
         const app = express();
         app.use(bodyParser.json({ type: '*/*' }));
@@ -48,7 +50,7 @@ class AuthenticationService {
             // Create oauth payload
             const payload = {
               'response_type': 'code',
-              'client_id': oauth2ClientId,
+              'client_id': "CLIENT ID",
               'redirect_uri': 'http://localhost:3000/return'
             };
           
